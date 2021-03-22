@@ -44,7 +44,7 @@ function UserSession(userInfo)
 bot.start((ctx) => {
     ctx.reply("Hello "+  getName(ctx.from)+"!  \nWecome to Telegram TechInt Bot")
 
-    ctx.reply("What can this bot do? \n\nYou can use these commands to  control me: \n-/Questions - Ask me questions about myself.\n-/help - show you commands you can run on this bot. ")
+    ctx.reply("What can this bot do? \n\nYou can use these commands to  control me: \n/start - Start the bot\n/Questions - Ask me questions about myself.\n/currentUser - Some information about the current user.\n/help - Show this help page.")
 
     UserSession(ctx)
 
@@ -53,7 +53,7 @@ bot.start((ctx) => {
 
 
 bot.help((ctx) => {
-    ctx.reply("This bot can perform the following commands\n  - /start\n - /help")
+    ctx.reply("Command reference:\n/start - Start the bot\n/Questions - Ask me questions about myself.\n/currentUser - Some information about the current user.\n/help - Show this help page.")
 })
 
 bot.on('sticker',(ctx) => {
@@ -70,6 +70,13 @@ function getName(user) {
 
 bot.hears('hello', (ctx) => {
     ctx.reply("Hello Sir, How are you ")
+})
+
+
+
+bot.command('currentUser', (ctx) => {
+    ctx.reply("Name: "+ctx.message.from.first_name +"\nLast Name: "+ctx.message.from.last_name+"\nLanguage code: "+ctx.message.from.language_code)
+    console.log(ctx.message)
 })
 
 
