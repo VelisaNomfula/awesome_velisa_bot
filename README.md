@@ -28,8 +28,6 @@ Step 2: Configure Node.js application
 
 
 
-
-
 ## How to Use this Bot
  * Open you Telegram application on your computer
  * Search for "Telegram TechInt Bot"
@@ -44,3 +42,39 @@ Step 2: Configure Node.js application
 
 
 ## How to deploy this bot to AWS
+
+### Step 1: Create account on aws
+
+* Go to https://www.aws.com, then create an account on aws
+* If already have an account, Go to aws console.
+### Step 2: Launch an EC2 instance
+
+* Create the role:
+  * Go to IAM Dashboard, create role (EC2 role)
+  * give permission to AutoScalingFullAccess
+  * Then click create the role
+* Go to EC2 dashboard, Under auto  scaling select Launch configuration
+* Create Launch configuration
+* Select the role created
+* For amazon machine image, stick with Ubuntu 18.4
+* You can click next and leave all other steps as default
+  * Under user data create insert shell commands to  install packages on your instances
+  * Install node.js and other packages
+   ```
+   #!/bin/bash
+   sudo apt-get install git
+   git clone https://github.com/VelisaNomfula/awesome_velisa_bot.git
+   npm install
+   node app.js
+   npm install pm2 -g
+   sudo pm2 start app.js
+   ```
+   
+* For configure security group, open port 22.
+* Click Launch, create key pair and save it on your machine.
+* Create Auto  Scaling group for the configuration, select a subnet then create.
+
+## The Architecture for the whole process is shown below:-
+![updated](https://user-images.githubusercontent.com/61043154/111972190-da63c100-8b05-11eb-9d00-a55bc14ab160.PNG)
+
+
