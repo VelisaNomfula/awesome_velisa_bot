@@ -1,0 +1,21 @@
+{
+  "name": "Telegram_Bot",
+  "version": "1.0.0",
+  "description": "This is the bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Velisa Nomfula",
+  "license": "ISC",
+  "dependencies": {
+    "@telegraf/session": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "telegraf": "^3.30.1",
+    "telegraf-session-redis": "^5.1.0",
+    "telegraf-statsd": "^2.2.1",
+    "telegraf-update-logger": "^1.5.0"
+  }
+}
