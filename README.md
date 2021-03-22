@@ -53,12 +53,12 @@ Step 2: Configure Node.js application
   * Go to IAM Dashboard, create role (EC2 role)
   * give permission to AutoScalingFullAccess
   * Then click create the role
-* Go to EC2 dashboard, Under auto  scaling select Launch configuration
-* Create Launch configuration
+  * 
+* Go to EC2 dashboard, Launch  an instance
+* * For amazon machine image, stick with Ubuntu 18.4
 * Select the role created
-* For amazon machine image, stick with Ubuntu 18.4
-* You can click next and leave all other steps as default
-  * Under user data create insert shell commands to  install packages on your instances
+* Under Configue Instance
+  * For user data create insert shell commands to  install packages on your instances
   * Install node.js and other packages
    ```
    #!/bin/bash
@@ -75,6 +75,7 @@ Step 2: Configure Node.js application
 * Create Auto  Scaling group for the configuration, select a subnet then create.
 
 ## The Architecture for the whole process is shown below:-
-![updated](https://user-images.githubusercontent.com/61043154/111972190-da63c100-8b05-11eb-9d00-a55bc14ab160.PNG)
+![lastUpd](https://user-images.githubusercontent.com/61043154/111974343-fbc5ac80-8b07-11eb-8216-77e1a4f60499.PNG)
+
 
 
